@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+rootdir=$(dirname `dirname $0`)
+srcdir=$rootdir/src
+mkdir -p $srcdir
+
+docker run --rm -v $srcdir:/docs squidfunk/mkdocs-material new .
+
+# while [ ! -e $srcdir/mkdocs.yml ]
+# do
+#   sleep 0.1
+# done
+
+docker run --rm -v $rootdir:/opt --entrypoint /usr/local/bin/python squidfunk/mkdocs-material /opt/sh/mkdocsyml.py
