@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+shdir=`dirname $0`
+rootdir=$(dirname $shdir)
+srcdir=$rootdir/src
+mkdir -p $srcdir
+
+# Dockerイメージをビルド
+docker build -t mkdocsjp $rootdir
+
+# create site
+docker run --rm -v $srcdir:/docs -u `id -u`:`id -g` mkdocsjp new .
+
+# set lang
+cp $shdir/set_lang.py $srcdir
+docker run --rm -v $srcdir:/docs -u `id -u`:`id -g` --entrypoint python3 mkdocsjp /docs/set_lang.py
+rm $srcdir/set_lang.py

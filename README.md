@@ -1,4 +1,3 @@
 # mkdocs material ja docker
-1. sh/new
-2. sh/serve
-3. sh/build
+1. sh/buildContainerImage
+2. sh/runContainer

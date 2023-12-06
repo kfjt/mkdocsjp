@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-srcdir=$(dirname `dirname $0`)/src
-docker run --rm -v $srcdir:/docs squidfunk/mkdocs-material build
