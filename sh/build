@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+rootdir=$(dirname `dirname $0`)
+srcdir=$rootdir/src
+
+docker run --rm -v $srcdir:/docs -u `id -u`:`id -g` ghcr.io/kfjt/mkdocsjp:latest

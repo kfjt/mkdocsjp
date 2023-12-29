@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-rootdir=$(dirname `dirname $0`)
-srcdir=$rootdir/src
-
-# Dockerコンテナを実行
-docker run --rm -v $srcdir:/docs -u `id -u`:`id -g` mkdocsjp
